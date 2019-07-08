@@ -1,4 +1,4 @@
-/* Task 5: Write a CPP program to check Intel RDT */
+/* Task 5: Write a CPP program to check Intel RDT Monitoring and Allocation Capabilities */
 
 #include <iostream>
 #include <cstring>
