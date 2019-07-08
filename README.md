@@ -7,5 +7,7 @@ It includes all the Tasks and Homework done during my Thesis <br>
 2. Write a cpp code to read the RFLAGs and check, set and clear any bit. [checkRflags.cpp](https://github.com/swap612/Thesis/blob/master/checkRflags.cpp) 
 3. Write C/C++ program to check if CPUID supported. [checkCpuid.cpp](https://github.com/swap612/Thesis/blob/master/checkCpuid.cpp) 
 4. Write a CPP program to check basic CPUID information(Vendor Name). [cpuidVendor.cpp](https://github.com/swap612/Thesis/blob/master/cpuidVendor.cpp) 
+5. Write a CPP program to check Intel RDT monitoring and allocation capabilities. [checkIntelRDT.cpp](https://github.com/swap612/Thesis/blob/master/checkIntelRDT.cpp) 
+
 
 
