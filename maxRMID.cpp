@@ -5,7 +5,7 @@
  * @version 0.1
  * @date 2019-07-16
  * 
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2019 Swapnil Raykar
  * 
  */
 
@@ -83,7 +83,7 @@ bool static inline checkRDTCapability()
 int static inline getMaxRMID()
 {
     uint64_t eax, ebx, ecx, edx;
-    eax = 0x0F, ecx = 0; // input EAX= 0x07, ECX= 0
+    eax = 0x0F, ecx = 0; // input EAX= 0x0F, ECX= 0
     ebx = 0, edx = 0;
     asm volatile("cpuid"
                  : "=a"(eax), "=b"(ebx), "=c"(ecx), "=d"(edx)
