@@ -95,7 +95,7 @@ int static inline getMaxRMID()
 
 int main()
 {
-    cout << "** Task7: Prints the maximum number of RMIDs supported **\n";
+    cout << "** Task6: Prints the maximum number of RMIDs supported **\n";
     if (checkCpuidSupport())
     {
         if (checkRDTCapability())
