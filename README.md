@@ -12,4 +12,4 @@ It includes all the Tasks and Homework done during my Thesis <br>
 
 
 ## HomeWorks
-1. Write a makefile to compile all C and CPP files in a directrory.  
+1. Write a makefile to compile all C and CPP files in a directrory. [Makefile](https://github.com/swap612/Thesis/blob/master/Makefile) 
