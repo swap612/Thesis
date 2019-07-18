@@ -8,7 +8,8 @@ It includes all the Tasks and Homework done during my Thesis <br>
 3. Write C/C++ program to check if CPUID supported. [checkCpuid.cpp](https://github.com/swap612/Thesis/blob/master/checkCpuid.cpp) 
 4. Write a CPP program to check basic CPUID information(Vendor Name). [cpuidVendor.cpp](https://github.com/swap612/Thesis/blob/master/cpuidVendor.cpp) 
 5. Write a CPP program to check Intel RDT monitoring and allocation capabilities. [checkIntelRDT.cpp](https://github.com/swap612/Thesis/blob/master/checkIntelRDT.cpp) 
-
+6.
+7. Write a program to print the maximum number of RMIDs supported. [maxRMID.cpp](https://github.com/swap612/Thesis/blob/master/maxRMID.cpp) 
 
 
 ## HomeWorks
