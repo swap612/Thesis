@@ -9,7 +9,7 @@ It includes all the Tasks and Homework done during my Thesis <br>
 4. Write a CPP program to check basic CPUID information(Vendor Name). [cpuidVendor.cpp](https://github.com/swap612/Thesis/blob/master/cpuidVendor.cpp) 
 5. Write a CPP program to check Intel RDT monitoring and allocation capabilities. [checkIntelRDT.cpp](https://github.com/swap612/Thesis/blob/master/checkIntelRDT.cpp) 
 6. Write a program to print the maximum number of RMIDs supported. [maxRMID.cpp](https://github.com/swap612/Thesis/blob/master/maxRMID.cpp) 
-
+7. Write a kernel module to read and write a MSR.
 
 ## HomeWorks
 1. Write a makefile to compile all C and CPP files in a directrory. [Makefile](https://github.com/swap612/Thesis/blob/master/Makefile) 
