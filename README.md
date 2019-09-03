@@ -12,7 +12,7 @@ It includes all the Tasks and Homework done during my Thesis <br>
 7. Write a kernel module to read and write a MSR. [Makefile](https://github.com/swap612/Thesis/blob/master/msrDemo/Makefile)   
     i. Module to read the TimStamp Counter MSR. [tsc.c](https://github.com/swap612/Thesis/blob/master/msrDemo/tsc.c)
 
-## HomeWorks
+## HomeWork
 1. Write a makefile to compile all C and CPP files in a directrory. [Makefile](https://github.com/swap612/Thesis/blob/master/Makefile) 
 
 ## Benchmark Code  
