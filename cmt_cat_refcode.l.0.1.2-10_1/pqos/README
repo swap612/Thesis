@@ -1,0 +1,147 @@
+
+
+========================================================================
+README for CMT and CAT Software Package
+
+January 2015
+========================================================================
+
+
+Contents
+========
+
+- Overview
+- Requirements and Installation
+- Usage
+- Legal Disclaimer
+
+
+Overview
+========
+
+This software package provides basic support for both Cache
+Monitoring Technology (CMT) and Cache Allocation Technology (CAT).
+This release supports last level cache occupancy monitoring on a per
+core or logical thread basis. The monitoring utility does not track
+application migration across cores as this would require scheduler
+integration. Instead, applications should be pinned to cores to
+track last level cache occupancy. Scheduler-integrated alternatives
+such as cgroups and perf are being researched to track the application
+PID (and all associated TIDs) rather than static assignment.
+The monitoring utility currently associates a Resource Monitoring ID
+(RMID) per core or logical thread when it initially comes up.
+
+The command line utility provides the necessary functionality to set 
+up the CAT capabilities. The software provides flags to configure the
+class of service (CLOS) and associate cores / logical threads with a 
+class of service. The Intel(R) Xeon v3 generation supports four
+classes of service and a set of pre-defined classes of service that
+should not be changed at run time. Core/Logical thread association
+with a class of service can be changed dynamically. CMT is supported on
+all Intel(R) Xeon v3 SKUs. CAT is supported on the following 5 SKUs:
+E5-2658 v3,  E5-2648L v3, E5-2628L v3, E5-2618L v3, and E5-2608L v3.
+Use of concurrent monitoring instances is possible as long as each
+instance  monitors exclusive set of cores. Library APIs are also thread safe.
+
+For additional CMT and CAT details please see refer to the Intel(R) 
+Architecture Software Development Manuals available at: 
+http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
+Specific information with regard to CMT and CAT can be found in
+Chapter 17.14 and 17.15.
+
+
+Requirements and Installation
+=============================
+
+CMT and CAT are configured using Model Specific Registers (MSRs) to
+measure occupancy, set up the class of service masks and manage the
+association of the cores/logical threads to a class of service. The
+pqos software executes in user space, and access to the MSRs is
+obtained through a standard Linux* interface. The virtual file system
+structure /dev/cpu/CPUNUM/msr provides an interface to read and write
+the MSRs. The msr file interface is protected and requires root
+privileges. The msr driver might not be auto-loaded and on some
+modular kernels the driver may need to be loaded manually:
+
+$ modprobe msr
+
+For installation of the PQoS utility untar the gzip image and execute
+make.
+
+
+
+Usage
+=====
+
+After compilation the pqos executable can be used to configure the
+last level cache allocation feature and monitor the last level cache
+occupancy.
+
+
+Usage:
+       ./pqos [-h] [-H]
+       ./pqos [-f <config_file_name>]
+       ./pqos [-m <event_type>:<list_of_cores>;...] [-t <time in sec>]
+          [-i <interval in 100ms>]
+          [-T]
+          [-o <output_file>] [-u <output_type>]
+	    [-r]
+       ./pqos [-e <allocation_type>:<class_num>=<class_definiton>;...]
+          [-c <allocation_type>:<profile_name>;...]
+          [-a <allocation_type>:<class_num>=<list_of_cores>;...]
+       ./pqos [-s]
+        
+Notes:
+
+     -h   help prints the help menu above.
+     
+     -H   list of supported allocation profiles. The Haswell generation
+          supports 4 classes of service and several pre-defined 
+          configurations. 
+     
+     -f   loads parameters from selected configuration file. An example
+          has been included in the tarball. See example.cfg for the syntax.
+     
+     -e   define allocation classes, example: "llc:0=0xfffff;llc:1=0x00ff;"
+          llc: - last level cache allocation class.
+          0=0xfffff; - class of service 0 utilizes 20 ways of the llc.
+     
+
+     -c   select a profile of predefined allocation classes,
+          see -H to list available profiles
+     
+     -a   associate cores with allocation classes,
+          example: "llc:0=0,2,4,6-10;llc:1=1"
+     
+     -r   reset CMT and use all cores and RMID's in the system
+
+     -s   show current cache allocation configuration
+     
+     -m   select cores and events for monitoring, example: "llc:0,2,4-10"
+     
+     -o   select output file to store monitored data in. 
+          stdout by default.
+     
+     -u   select output format type for monitored data.
+          Available options are: text (default), xml.
+     
+     -i   define monitoring sampling interval, 1=100ms, default
+       10=10x100ms=1s
+
+     -T   top like monitoring output
+     
+     -t   define monitoring time
+          Use 'inf' or 'infinite' for infinite monitoring time
+
+
+Legal Disclaimer
+================
+
+THIS SOFTWARE IS PROVIDED BY INTEL"AS IS". NO LICENSE, EXPRESS OR
+IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS
+ARE GRANTED THROUGH USE. EXCEPT AS PROVIDED IN INTEL'S TERMS AND
+CONDITIONS OF SALE, INTEL ASSUMES NO LIABILITY WHATSOEVER AND INTEL
+DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR
+USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO
+FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT
+OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT.
