@@ -1364,6 +1364,12 @@ int main(int argc, char **argv)
         int cmd, ret, exit_val = EXIT_SUCCESS;
         FILE *fp_monitor = NULL;
 
+	// Added code to store pid in a file which can be read by other process	
+	FILE *fp_pid = NULL;
+        fp_pid = fopen("pid", "w+");
+        fprintf(fp_pid,"%d",getpid());
+        fclose(fp_pid);
+
         m_cmd_name = argv[0];
 
         while ((cmd = getopt(argc, argv, "Hhf:i:m:Tt:l:o:u:e:c:a:srv")) != -1) {
